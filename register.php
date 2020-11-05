@@ -1,6 +1,7 @@
-<?php require 'inc/header.php'; ?>
-
-    <?php 
+   <?php 
+require_once 'inc/function.php'; 
+session_start();
+ 
         if(!empty($_POST)){
 
             $errors = array();
@@ -31,7 +32,9 @@
                    $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?");
                    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
                    $req->execute([$_POST['username'], $password]);
-                   die('Notre comptes a bien été créé');
+                   $_SESSION['flash']['success']= " Vous êtes connecté ";
+                   header('Location: login.php');
+                   exit();
 
                } 
 
@@ -41,6 +44,8 @@
 
 ?>
 
+<?php require 'inc/header.php'; ?>
+
     <h1> S'inscrire </h1>
 
        <?php if(!empty($errors)): ?>
@@ -48,12 +53,13 @@
             <p>Vous n'avez pas rempli le formulaire correctement</p>
               <ul>
                   
-                    <?php foreach($errors as $error): ?>
-                     <li><?=error; ?></li>
+                    <?php foreach($errors as $errors): ?>
+                     <li><?=$errors; ?></li>
                     <?php endforeach; ?>
                 </ul>
           </div>
-     
+      <?php endif; ?>
+
        <form action="" method="POST">
 
           <div class="form-group">
