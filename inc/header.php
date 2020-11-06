@@ -22,9 +22,16 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+       <?php if(isset($_SESSION['auth'])):?>
+
+          <li><a href="logout.php">Se déconnecter</a></li>
+
+       <?php else: ?>
       <li class="nav-item"><a class="nav-link" href="register.php">S'inscrire</a></li>
 
         <li class="nav-item"><a class="nav-link" href="login.php">Se connecter</a></li>
+        
+       <?php endif; ?>
     </ul>
     
     <form class="form-inline my-2 my-lg-0">

@@ -1,6 +1,7 @@
    <?php 
 require_once 'inc/function.php'; 
 session_start();
+
  
         if(!empty($_POST)){
 
@@ -14,6 +15,7 @@ session_start();
                    $req = $pdo->prepare('SELECT id FROM users WHERE username = ?');
                    $req->execute([$_POST['username']]);
                    $user = $req->fetch();
+                   $_SESSION['auth'] = $user;
                   if($user){
 
                     $errors['username'] = 'Ce pseudo est déjà pris';
