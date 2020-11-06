@@ -10,7 +10,7 @@
           if(session_status() == PHP_SESSION_NONE){
                session_start();
              }
-          $_SESSION['flash']['error'] = "Vous n'avez pas le droit d'accéder à cette page!";
+          $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette page!";
           header('Location: login.php');
           exit();
      }
