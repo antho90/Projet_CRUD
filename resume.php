@@ -1,7 +1,8 @@
 <?php 
 require_once 'inc/function.php'; 
-session_start();
 
+session_start();
+interdit();
  
         if(!empty($_POST)){
 
@@ -18,6 +19,16 @@ session_start();
 
             }
 
+            if(empty($_POST['nom_post']) || !preg_match('/^[a-zA-Z0-9_\pL\pM\p{Zs}.-]+$/u', $_POST['nom_post'])){
+
+                $errors['nom_post'] = "Le pseudo n'est pas valide";
+            }else{
+                   $req = $pdo->prepare('SELECT id FROM resum WHERE nom_post = ?');
+                   $req->execute([$_POST['nom_post']]);
+                   $user = $req->fetch();
+
+            }
+
             if(empty($_POST['synopsis'])){
 
                 $errors['synopsis'] = "Vous devez ecrire votre résumé";
@@ -25,9 +36,10 @@ session_start();
             }
                if(empty($errors)){
                    
-                   $req = $pdo->prepare("INSERT INTO resum SET titre = ?, synopsis = ?");
+                   $req = $pdo->prepare("INSERT INTO resum SET titre = ?, synopsis = ? , nom_post = ?");
                    $synopsis = ($_POST['synopsis']);
-                   $req->execute( [$_POST['titre'] , $synopsis]);
+                   $nom_post = ($_POST['nom_post']);
+                   $req->execute( [$_POST['titre'] , $synopsis , $nom_post]);
                    $_SESSION['flash']['success']= " Résumé envoyer! ";
                    header('Location: actu.php');
                    exit();
@@ -61,13 +73,18 @@ session_start();
        <form action="" method="POST">
 
           <div class="form-group">
-              <label for="">Nom film/série</label>
+              <label for="">Nom film/série : </label>
             <input type="text" name="titre" class="form-control"/>
             </div>
 
             <div class="form-group">
-              <label for="">Résumé</label>
+              <label for="">Résumé : </label>
             <input type="text" name="synopsis" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+              <label for="">Vortre pseudo : </label>
+            <input type="text" name="nom_post" class="form-control"/>
             </div>
 
             <button type="submit" class="btn btn-primary">Poster</button>

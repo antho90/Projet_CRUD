@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
     <title>A l'eau Ciné</title>
 </head>
 <body>
@@ -22,11 +23,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <li class="nav-item"><a class="nav-link" href="home.php">Accueil</a></li>
-       <?php if(isset($_SESSION['auth'])):?>
 
-          <li class="nav-item"><a class="nav-link" href="logout.php">Se déconnecter</a></li>
+       <?php if(isset($_SESSION['auth'])):?>
+       
+          <li class="nav-item"><a class="nav-link" href="home.php">Accueil</a></li>
           <li class="nav-item"><a class="nav-link" href="resume.php">Résumés</a></li>
+          <li class="nav-item"><a class="nav-link" href="actu.php">Actu ciné</a></li>
+          <li class="nav-item"><a class="nav-link" href="logout.php">Se déconnecter</a></li>
+          
 
        <?php else: ?>
       <li class="nav-item"><a class="nav-link" href="register.php">S'inscrire</a></li>
