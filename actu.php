@@ -1,32 +1,32 @@
-<?php 
-   require 'inc/function.php';
-   require_once 'inc/db.php';
+<?php
+require 'inc/function.php';
+require_once 'inc/db.php';
 
-       $pdostat = $pdo->prepare('SELECT resum.id,resum.titre,resum.synopsis,resum.id_user,users.username FROM resum,users WHERE resum.id_user = users.id');
+$pdostat = $pdo->prepare('SELECT resum.id,resum.titre,resum.synopsis,resum.id_user,users.username FROM resum,users WHERE resum.id_user = users.id');
 
 
-       $executeIsOk = $pdostat->execute();
+$executeIsOk = $pdostat->execute();
 
-        $resumes = $pdostat->fetchAll();
-         
+$resumes = $pdostat->fetchAll();
+
 ?>
 
-   <?php require 'inc/header.php'; ?>
+<?php require 'inc/header.php'; ?>
 
-      <h1> Actu films et séries</h1><br><br>
+<h1> Actu films et séries</h1><br><br>
 
-        <h3> Découvrer les films et séries à l'actu</h3><br><br>
-              
-                <ul>
-                    <?php foreach ($resumes as $resume1): ?>
-                       <li>
-                           <?= "$resume1->titre" ?> : <br><br> <?= "$resume1->synopsis" ?><br><br> écrit par :   <?= "$resume1->username" ?><br><br>
+<h3> Découvrer les films et séries à l'actu</h3><br><br>
 
-                        </li>
+<ul>
+    <?php foreach ($resumes as $resume1) : ?>
+        <li>
+            <?= "$resume1->titre" ?> : <br><br> <?= "$resume1->synopsis" ?><br><br> écrit par : <?= "$resume1->username" ?><br><br>
 
-                    <?php endforeach; ?>
+        </li>
 
-                </ul>
-    
+    <?php endforeach; ?>
 
-    <?php require 'inc/footer.php'; ?>
+</ul>
+
+
+<?php require 'inc/footer.php'; ?>
