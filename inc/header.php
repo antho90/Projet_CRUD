@@ -29,6 +29,7 @@
           <li class="nav-item"><a class="nav-link" href="home.php">Accueil</a></li>
           <li class="nav-item"><a class="nav-link" href="resume.php">Résumés</a></li>
           <li class="nav-item"><a class="nav-link" href="actu.php">Actu ciné</a></li>
+          <li class="nav-item"><a class="nav-link" href="account.php">Votre Compte</a></li>
           <li class="nav-item"><a class="nav-link" href="logout.php">Se déconnecter</a></li>
           
 

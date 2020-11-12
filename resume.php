@@ -12,22 +12,9 @@ interdit();
             if(empty($_POST['titre']) || !preg_match('/^[a-zA-Z0-9_\pL\pM\p{Zs}.-]+$/u', $_POST['titre'])){
 
                 $errors['titre'] = "Le titre n'est pas valide";
-            }else{
-                   $req = $pdo->prepare('SELECT id FROM resum WHERE titre = ?');
-                   $req->execute([$_POST['titre']]);
-                   $user = $req->fetch();
-
             }
+                  
 
-            if(empty($_POST['nom_post']) || !preg_match('/^[a-zA-Z0-9_\pL\pM\p{Zs}.-]+$/u', $_POST['nom_post'])){
-
-                $errors['nom_post'] = "Le pseudo n'est pas valide";
-            }else{
-                   $req = $pdo->prepare('SELECT id FROM resum WHERE nom_post = ?');
-                   $req->execute([$_POST['nom_post']]);
-                   $user = $req->fetch();
-
-            }
 
             if(empty($_POST['synopsis'])){
 
@@ -36,10 +23,10 @@ interdit();
             }
                if(empty($errors)){
                    
-                   $req = $pdo->prepare("INSERT INTO resum SET titre = ?, synopsis = ? , nom_post = ?");
+                   $req = $pdo->prepare("INSERT INTO resum SET titre = ?, synopsis = ? , id_user = ?");
                    $synopsis = ($_POST['synopsis']);
-                   $nom_post = ($_POST['nom_post']);
-                   $req->execute( [$_POST['titre'] , $synopsis , $nom_post]);
+                   
+                   $req->execute( [$_POST['titre'] , $synopsis , $_SESSION['auth']->id]);
                    $_SESSION['flash']['success']= " Résumé envoyer! ";
                    header('Location: actu.php');
                    exit();
@@ -48,7 +35,6 @@ interdit();
 
  
         }
-
 ?>
 
 
@@ -56,7 +42,9 @@ interdit();
 
 <?php require 'inc/header.php'; ?>
 
-    <h1> Résumés films et séries</h1>
+    <h1> Résumés films et séries</h1><br><br>
+
+         <h3> Créer votre propre résumé ! </h3><br><br>
 
        <?php if(!empty($errors)): ?>
           <div class="alert alert-danger">
@@ -82,10 +70,6 @@ interdit();
             <input type="text" name="synopsis" class="form-control"/>
             </div>
 
-            <div class="form-group">
-              <label for="">Vortre pseudo : </label>
-            <input type="text" name="nom_post" class="form-control"/>
-            </div>
 
             <button type="submit" class="btn btn-primary">Poster</button>
 
