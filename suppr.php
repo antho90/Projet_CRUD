@@ -31,7 +31,7 @@
 
              <form action="" method="post">
              <div class="form-group">
-                  <textarea value="<?php echo $film->synopsis ?>" type="text" readonly name="synopsis" placeholder="Changer le synopsis" class="form-control"/>
+             <textarea readonly name="synopsis" placeholder="Changer le synopsis" class="form-control"><?php echo $film->synopsis ?></textarea>
              </div>
                <button class="btn btn-outline-danger">Suppr</button>
 

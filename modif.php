@@ -30,7 +30,7 @@
 
              <form action="" method="post">
              <div class="form-group">
-                  <input value="<?php echo $film->synopsis ?>" type="textarea" name="synopsis" placeholder="Changer le synopsis" class="form-control"/>
+                  <textarea name="synopsis" placeholder="Changer le synopsis" class="form-control"><?php echo $film->synopsis ?></textarea>
              </div>
                <button class="btn btn-outline-success">Valider</button>
 

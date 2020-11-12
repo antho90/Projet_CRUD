@@ -62,12 +62,12 @@ interdit();
 
           <div class="form-group">
               <label for="">Nom film/série : </label>
-            <input type="text" name="titre" class="form-control"/>
+            <input type="text" name="titre" placeholder="Votre titre" class="form-control"/>
             </div>
 
             <div class="form-group">
               <label for="">Résumé : </label>
-            <input type="text" name="synopsis" class="form-control"/>
+            <textarea name="synopsis" placeholder="Votre résumé" class="form-control"></textarea>
             </div>
 
 
