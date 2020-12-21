@@ -1,6 +1,8 @@
 <?php
 require 'inc/function.php';
 require_once 'inc/db.php';
+require_once 'css/app.css';
+
 
 $pdostat = $pdo->prepare('SELECT resum.id,resum.titre,resum.synopsis,resum.id_user,users.username FROM resum,users WHERE resum.id_user = users.id');
 
@@ -19,8 +21,11 @@ $resumes = $pdostat->fetchAll();
 
 <ul>
     <?php foreach ($resumes as $resume1) : ?>
-        <li>
-            <?= "$resume1->titre" ?> : <br><br> <?= "$resume1->synopsis" ?><br><br> écrit par : <?= "$resume1->username" ?><br><br>
+        <li><span class="b">
+                <?= "$resume1->titre" ?> : <br><br>
+            </span>
+            <?= "$resume1->synopsis" ?><br><br> écrit par :
+            <?= "$resume1->username" ?><br><br>
 
         </li>
 
