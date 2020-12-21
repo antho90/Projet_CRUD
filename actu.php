@@ -1,7 +1,6 @@
 <?php
 require 'inc/function.php';
 require_once 'inc/db.php';
-require_once 'css/app.css';
 
 
 $pdostat = $pdo->prepare('SELECT resum.id,resum.titre,resum.synopsis,resum.id_user,users.username FROM resum,users WHERE resum.id_user = users.id');

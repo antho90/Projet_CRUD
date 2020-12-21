@@ -11,6 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/movie-projector.png"/>
   <title>A l'eau Ciné</title>
 </head>
 
