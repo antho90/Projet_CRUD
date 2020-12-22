@@ -24,8 +24,8 @@ $resumes = $pdostat->fetchAll();
 
 <ul>
   <?php foreach ($resumes as $resume1) : ?>
-    <li>
-      <?= "$resume1->titre" ?> : <br><br> <?= "$resume1->synopsis" ?><br><br> écrit par : <?= "$resume1->username" ?><br><br>
+    <li><span class="b">
+      <?= "$resume1->titre" ?></span> : <br><br> <?= "$resume1->synopsis" ?><br><br> écrit par : <?= "$resume1->username" ?><br><br>
 
     </li>
     <a href="modif.php?id=<?php echo $resume1->id ?>" class="btn btn-outline-success my-2 my-sm-0">Modifier</a>
