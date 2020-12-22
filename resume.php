@@ -38,37 +38,38 @@ if (!empty($_POST)) {
 
 <?php require 'inc/header.php'; ?>
 
-<h1> Résumés films et séries</h1><br><br>
+<div class="center">
+  <h1> Résumés films et séries</h1><br><br>
 
-<h3> Créer votre propre résumé ! </h3><br><br>
+  <h3> Créer votre propre résumé ! </h3><br><br>
 
-<?php if (!empty($errors)) : ?>
-  <div class="alert alert-danger">
-    <p>Vous n'avez pas rempli le formulaire correctement</p>
-    <ul>
+  <?php if (!empty($errors)) : ?>
+    <div class="alert alert-danger">
+      <p>Vous n'avez pas rempli le formulaire correctement</p>
+      <ul>
 
-      <?php foreach ($errors as $errors) : ?>
-        <li><?= $errors; ?></li>
-      <?php endforeach; ?>
-    </ul>
-  </div>
-<?php endif; ?>
+        <?php foreach ($errors as $errors) : ?>
+          <li><?= $errors; ?></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
+  <?php endif; ?>
 
-<form action="" method="POST">
+  <form action="" method="POST">
 
-  <div class="form-group">
-    <label for="">Nom film/série : </label>
-    <input type="text" name="titre" placeholder="Votre titre" class="form-control" />
-  </div>
+    <div class="form-group w">
+      <label for="">Nom film/série : </label>
+      <input type="text" name="titre" placeholder="Votre titre" class="form-control" />
+    </div>
 
-  <div class="form-group">
-    <label for="">Résumé : </label>
-    <textarea name="synopsis" placeholder="Votre résumé" class="form-control"></textarea>
-  </div>
+    <div class="form-group w">
+      <label for="">Résumé : </label>
+      <textarea rows="8" name="synopsis" placeholder="Votre résumé" class="form-control"></textarea>
+    </div>
 
 
-  <button type="submit" class="btn btn-primary">Poster</button>
+    <button type="submit" class="btn btn-primary w">Poster</button>
 
-</form>
-
+  </form>
+</div>
 <?php require 'inc/footer.php'; ?>

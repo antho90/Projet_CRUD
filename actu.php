@@ -1,5 +1,7 @@
 <?php
+session_start();
 require 'inc/function.php';
+interdit();
 require_once 'inc/db.php';
 
 
@@ -14,9 +16,9 @@ $resumes = $pdostat->fetchAll();
 
 <?php require 'inc/header.php'; ?>
 
-<h1> Actu films et séries</h1><br><br>
+<h1 class="m_top text_center"> Actu films et séries</h1><br><br>
 
-<h3> Découvrer les films et séries à l'actu</h3><br><br>
+<h3 class="text_center"> Découvrer les films et séries à l'actu</h3><br><br>
 
 <ul>
     <?php foreach ($resumes as $resume1) : ?>
@@ -26,11 +28,10 @@ $resumes = $pdostat->fetchAll();
             <?= "$resume1->synopsis" ?><br><br> écrit par :
             <?= "$resume1->username" ?><br><br>
 
-        </li>
+        </li><br><br>
 
     <?php endforeach; ?>
 
 </ul>
-
 
 <?php require 'inc/footer.php'; ?>

@@ -1,5 +1,7 @@
 <?php
-require_once 'inc/function.php';
+session_start();
+require 'inc/function.php';
+interdit();
 require_once 'inc/db.php';
 require_once 'inc/header.php';
 
@@ -14,9 +16,9 @@ $resumes = $pdostat->fetchAll();
 
 
 
-<h1> Votre Compte</h1><br><br>
+<h1 class="m_top text_center"> Votre Compte</h1><br><br>
 
-<h2> Modifier ou supprimer vos publications</h2><br><br>
+<h2 class="text_center"> Modifier ou supprimer vos publications</h2><br><br>
 
 <h3>Vos récentes publications : </h3><br>
 
@@ -27,10 +29,10 @@ $resumes = $pdostat->fetchAll();
 
     </li>
     <a href="modif.php?id=<?php echo $resume1->id ?>" class="btn btn-outline-success my-2 my-sm-0">Modifier</a>
-    <a href="suppr.php?id=<?php echo $resume1->id ?>" class="btn btn-outline-danger my-2 my-sm-0">Suppr</a><br><br>
+    <a href="suppr.php?id=<?php echo $resume1->id ?>" class="btn btn-outline-danger my-2 my-sm-0">Suppr</a><br><br><br><br>
   <?php endforeach; ?>
 
 </ul>
 
 
-<?php require 'inc/footer.php'; ?>
+<?php require 'inc/footer.php';?>

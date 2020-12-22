@@ -18,23 +18,23 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
 
 ?>
 <?php require 'inc/header.php'; ?>
+<div class="center">
+     <h1>Connexion </h1>
 
-<h1>Connexion </h1>
+     <form action="" method="POST">
 
-<form action="" method="POST">
+          <div class="form-group w">
+               <label for="">Pseudo</label>
+               <input type="text" name="username" class="form-control" />
+          </div>
 
-     <div class="form-group">
-          <label for="">Pseudo</label>
-          <input type="text" name="username" class="form-control" />
-     </div>
+          <div class="form-group w">
+               <label for="">Mot de passe</label>
+               <input type="password" name="password" class="form-control" />
+          </div>
 
-     <div class="form-group">
-          <label for="">Mot de passe</label>
-          <input type="password" name="password" class="form-control" />
-     </div>
+          <button type="submit" class="btn btn-primary w">Se connecter</button>
 
-     <button type="submit" class="btn btn-primary">Se connecter</button>
-
-</form>
-
+     </form>
+</div>
 <?php require 'inc/footer.php'; ?>

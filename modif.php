@@ -21,21 +21,22 @@ if ($film && $_SESSION['auth']->id === $film->id_user) {
 
 ?>
 
+<div class="center">
    <h1> Modifier votre publication</h1><br><br>
 
    <form action="" method="post">
-      <div class="form-group">
+      <div class="form-group w">
          <input value="<?php echo $film->titre ?>" type="text" name="titre" placeholder="Changer le tire" class="form-control" />
       </div>
 
       <form action="" method="post">
-         <div class="form-group">
-            <textarea name="synopsis" placeholder="Changer le synopsis" class="form-control"><?php echo $film->synopsis ?></textarea>
+         <div class="form-group w">
+            <textarea rows="8" name="synopsis" placeholder="Changer le synopsis" class="form-control"><?php echo $film->synopsis ?></textarea>
          </div>
-         <button class="btn btn-outline-success">Valider</button>
+         <button class="btn btn-outline-success w">Valider</button>
 
       </form>
-
+</div>
    <?php require 'inc/footer.php';
 } else {
 
